@@ -15,9 +15,9 @@ public:
                 curWindow++;
             }
 
-            if (!map.count(sum)) {
-                map[sum] = i;
-            }
+            // if (!map.count(sum)) {
+            //     map[sum] = i;
+            // }
         }
 
         return (minLength == INT_MAX) ? 0 : minLength;
