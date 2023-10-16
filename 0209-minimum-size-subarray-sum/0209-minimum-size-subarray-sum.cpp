@@ -8,12 +8,11 @@ public:
 
         for (int i = 0; i < nums.size(); i++) {
             sum += nums[i];
-            if (sum >= target) {
-                while (sum - nums[curWindow] >= target) {
-                    sum -= nums[curWindow];
-                    curWindow++;
-                }
+
+            while (sum >= target) {
                 minLength = min(minLength, i - curWindow + 1);
+                sum -= nums[curWindow];
+                curWindow++;
             }
 
             if (!map.count(sum)) {
