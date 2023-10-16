@@ -4,7 +4,7 @@ public:
         int curWindow = 0;
         int minLength = INT_MAX; // Initialize minLength to a large value.
         int sum = 0;
-        unordered_map<int, int> map;
+     
 
         for (int i = 0; i < nums.size(); i++) {
             sum += nums[i];
@@ -14,7 +14,6 @@ public:
                 sum -= nums[curWindow];
                 curWindow++;
             }
-
     
         }
 
