@@ -7,7 +7,7 @@ var filter = function(arr, fn) {
     let filteredArr =[]
     for(let items in arr){
         let result = fn(arr[items],Number(items))
-        if(result!=0 || result==true)filteredArr.push(arr[items]);
+        if(result)filteredArr.push(arr[items]);
     }
     return filteredArr
 };
