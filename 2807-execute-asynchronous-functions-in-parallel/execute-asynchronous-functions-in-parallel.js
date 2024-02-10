@@ -3,12 +3,26 @@
  * @return {Promise<any>}
  */
 var promiseAll = function(functions) {
-    let list = []
-    functions.forEach(function(item){
-        list.push(item())
-    })
-   let promise=  Promise.all(list)
-   return promise
+    return new Promise(function(resolve, reject) {
+        let results = [];
+        let numResolved = 0;
+        let numFunctions = functions.length;
+
+        for (let i = 0; i < numFunctions; i++) {
+            functions[i]()
+                .then(value => {
+                    results[i] = value;
+                    numResolved++;
+
+                    if (numResolved === numFunctions) {
+                        resolve(results);
+                    }
+                })
+                .catch(error => {
+                    reject(error);
+                });
+        }
+    });
 };
 
 /**
