@@ -3,8 +3,9 @@
  * @return {Promise<any>}
  */
 var promiseAll = function(functions) {
-    let list = functions.map(function(item){
-        return item()
+    let list = []
+    functions.forEach(function(item){
+        list.push(item())
     })
    let promise=  Promise.all(list)
    return promise
